@@ -1,0 +1,55 @@
+apply from: 'config/buildsystem/dependencies.gradle'
+apply from: 'config/buildsystem/flavours.gradle'
+apply from: 'config/buildsystem/types.gradle'
+apply from: 'config/quality/checkstyle/checkstyle.gradle'
+apply from: 'config/quality/jacoco/jacoco.gradle'
+apply from: 'config/quality/sonar.gradle'
+
+buildscript {
+  repositories {
+    jcenter()
+    maven { url 'https://plugins.gradle.org/m2/' }
+    //maven { url 'https://maven.fabric.io/public' }
+  }
+  dependencies {
+    classpath "com.android.tools.build:gradle:1.5.0"
+    classpath "com.android.databinding:dataBinder:1.0-rc4"
+    classpath "com.neenbedankt.gradle.plugins:android-apt:1.8"
+    classpath "org.sonarqube.gradle:gradle-sonarqube-plugin:1.0"
+    classpath "com.fernandocejas.frodo:frodo-plugin:0.8.2"
+    //classpath 'com.google.gms:google-services:1.5.0-beta2'
+    //classpath 'io.fabric.tools:gradle:1.+'
+  }
+}
+
+allprojects {
+  ext {
+    androidApplicationId = 'com.example.app'
+    androidVersionCode =
+        versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100 + versionBuild
+    androidVersionName = "${versionMajor}.${versionMinor}.${versionPatch}"
+    testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
+    testApplicationId = 'com.example.app.test'
+  }
+}
+
+task wrapper(type: Wrapper) {
+  description 'Creates the gradle wrapper.'
+  gradleVersion '2.8'
+}
+
+task runDomainUnitTests(dependsOn: [':domain:test']) {
+  description 'Run unit tests for the domain layer.'
+}
+
+task runDataUnitTests(dependsOn: [':data:testDebugUnitTest']) {
+  description 'Run unit tests for the data layer.'
+}
+
+task runUnitTests(dependsOn: ['runDomainUnitTests', 'runDataUnitTests']) {
+  description 'Run unit tests for both domain and data layers.'
+}
+
+task runAcceptanceTests(dependsOn: [':app:connectedAndroidTest']) {
+  description 'Run application acceptance tests.'
+}
