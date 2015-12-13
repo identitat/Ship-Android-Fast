@@ -1,7 +1,3 @@
-apply plugin: 'com.android.application'
-apply plugin: 'com.neenbedankt.android-apt'
-apply plugin: 'com.android.databinding'
-apply plugin: 'com.fernandocejas.frodo'
 /*
  *     Copyright (c) 2015-present Victor Hidalgo Lorenzo
  *
@@ -17,6 +13,12 @@ apply plugin: 'com.fernandocejas.frodo'
  *     See the License for the specific language governing permissions and
  *     limitations under the License.
  */
+
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'com.android.databinding'
+apply plugin: 'com.fernandocejas.frodo'
+
 
 //apply plugin: 'com.google.gms.google-services'
 //apply plugin: 'io.fabric'
@@ -151,6 +153,7 @@ dependencies {
   apt appDependencies.icepickProc
 
   debugCompile appDependencies.leakcanaryDebug
+  stageCompile appDependencies.leakcanaryRelease
   releaseCompile appDependencies.leakcanaryRelease
 
   testCompile appTestDependencies.junit
