@@ -47,14 +47,13 @@ public class AndroidApp extends Application {
 
     if (BuildConfig.DEBUG) {
 
-      Timber.plant(new Timber.DebugTree());
-
+      initTimber(new Timber.DebugTree());
       enabledStrictMode();
       initStetho();
     } else {
 
+      initTimber(new CrashReportingTree());
       initCrashReports();
-      Timber.plant(new CrashReportingTree());
       initAnalytics();
     }
   }
@@ -110,6 +109,10 @@ public class AndroidApp extends Application {
 
   private void initAnalytics() {
     AnalyticsFacade.init(this);
+  }
+
+  private void initTimber(Timber.Tree tree) {
+    Timber.plant(tree);
   }
 
   /** A tree which logs important information for crash reporting. */
