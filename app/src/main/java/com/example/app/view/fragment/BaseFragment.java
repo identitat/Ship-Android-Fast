@@ -60,6 +60,17 @@ public abstract class BaseFragment extends Fragment {
     Snackbar.make(view, message, Snackbar.LENGTH_LONG).show();
   }
 
+  /**
+   * Shows a {@link android.support.design.widget.Snackbar} message.
+   *
+   * @param message An string representing a message to be shown.
+   */
+  protected void showSnackbarMessage(String message) {
+    if(getView() != null){
+      Snackbar.make(getView(), message, Snackbar.LENGTH_LONG).show();
+    }
+  }
+
   public Context getContext() {
     return getActivity().getApplicationContext();
   }
