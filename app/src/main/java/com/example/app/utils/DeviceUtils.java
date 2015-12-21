@@ -24,6 +24,9 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import com.example.app.AndroidApp;
 
+/**
+ * Utils class to handle device operations
+ */
 public class DeviceUtils {
 
   private DeviceUtils() {

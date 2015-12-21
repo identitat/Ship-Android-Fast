@@ -22,6 +22,9 @@ import java.util.regex.Pattern;
 
 import static com.example.commons.Utils.isNotBlank;
 
+/**
+ * Utility to manage all string related operations
+ */
 public class StringUtils {
 
   public static final String HTML_BR_TAG;

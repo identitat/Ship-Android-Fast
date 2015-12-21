@@ -16,29 +16,23 @@
 
 package com.example.commons;
 
-import java.util.Collection;
-
 /**
- * Utility to handle general operations
+ * Utils class to handle log operations
  */
-public class Utils {
+public class LogUtils {
 
-  private Utils() {
+  private static final String LOG_PREFIX = "android_";
+  private static final int LOG_PREFIX_LENGTH = LOG_PREFIX.length();
+  private static final int MAX_LOG_TAG_LENGTH = 23;
+
+  public static String makeLogTag(String str) {
+    if (str.length() > MAX_LOG_TAG_LENGTH - LOG_PREFIX_LENGTH) {
+      return LOG_PREFIX + str.substring(0, MAX_LOG_TAG_LENGTH - LOG_PREFIX_LENGTH - 1);
+    }
+
+    return LOG_PREFIX + str;
   }
 
-  public static boolean isNotBlank(String input) {
-    return !isBlank(input);
-  }
-
-  public static boolean isBlank(String input) {
-    return input == null || input.trim().isEmpty();
-  }
-
-  public static <T> boolean isEmpty(T[] array) {
-    return array == null || array.length == 0;
-  }
-
-  public static <T> boolean isEmpty(Collection<T> collection) {
-    return collection == null || collection.isEmpty();
+  private LogUtils() {
   }
 }
