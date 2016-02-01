@@ -18,6 +18,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'com.android.databinding'
 apply plugin: 'com.fernandocejas.frodo'
+apply plugin: 'com.frogermcs.dagger2metrics'
 
 
 //apply plugin: 'com.google.gms.google-services'

@@ -27,6 +27,7 @@ import com.example.app.di.components.DaggerAppComponent;
 import com.example.app.di.modules.AppModule;
 import com.example.app.utils.analytics.AnalyticsFacade;
 import com.facebook.stetho.Stetho;
+import com.frogermcs.dagger2metrics.Dagger2Metrics;
 import com.squareup.leakcanary.LeakCanary;
 import timber.log.Timber;
 
@@ -50,6 +51,7 @@ public class AndroidApp extends Application {
       initTimber(new Timber.DebugTree());
       enabledStrictMode();
       initStetho();
+      initDaggerMetrics();
     } else {
 
       initTimber(new CrashReportingTree());
@@ -84,6 +86,11 @@ public class AndroidApp extends Application {
           new StrictMode.ThreadPolicy.Builder().detectAll().penaltyLog().penaltyDeathOnNetwork().build()
       );
     }
+  }
+
+
+  private void initDaggerMetrics() {
+    Dagger2Metrics.enableCapturing(this);
   }
 
   private void initCrashReports() {
