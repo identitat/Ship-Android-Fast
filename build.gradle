@@ -36,7 +36,7 @@ allprojects {
 
 task wrapper(type: Wrapper) {
   description 'Creates the gradle wrapper.'
-  gradleVersion '2.8'
+  gradleVersion '2.10'
 }
 
 task runDomainUnitTests(dependsOn: [':domain:test']) {

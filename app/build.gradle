@@ -87,7 +87,9 @@ android {
       applicationIdSuffix '.stage'
       buildConfigField "String", "API_URL", type.apiUrl
       minifyEnabled true
-      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+      debuggable true
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro', 'proguard-rules-stage.pro'
+      signingConfig signingConfigs.debug
     }
 
     release {
