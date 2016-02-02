@@ -20,6 +20,7 @@ import android.databinding.ObservableInt;
 import android.view.View;
 import com.example.app.model.Repository;
 import com.example.app.model.mapper.RepoDomainPresMapper;
+import com.example.app.utils.imageloader.ImageLoader;
 import com.example.domain.exception.DefaultErrorBundle;
 import com.example.domain.exception.ErrorBundle;
 import com.example.domain.interactor.DefaultSubscriber;
@@ -42,14 +43,18 @@ public class RepositoryViewModel implements ViewModel {
 
   private final UseCase getRepoListUseCase;
   private final RepoDomainPresMapper repoDomainPresMapper;
+  private final ImageLoader imageLoader;
 
   @Inject
   public RepositoryViewModel(
       @Named("repoList")
-      UseCase getRepoListUseCase, RepoDomainPresMapper repoDomainPresMapper
+      UseCase getRepoListUseCase,
+      RepoDomainPresMapper repoDomainPresMapper,
+      ImageLoader imageLoader
   ) {
     this.getRepoListUseCase = getRepoListUseCase;
     this.repoDomainPresMapper = repoDomainPresMapper;
+    this.imageLoader = imageLoader;
 
     progressVisibility = new ObservableInt(View.GONE);
     retryVisibility = new ObservableInt(View.GONE);

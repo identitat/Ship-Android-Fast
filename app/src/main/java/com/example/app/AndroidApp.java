@@ -25,7 +25,6 @@ import cat.ereza.customactivityoncrash.CustomActivityOnCrash;
 import com.example.app.di.components.AppComponent;
 import com.example.app.di.components.DaggerAppComponent;
 import com.example.app.di.modules.AppModule;
-import com.example.app.utils.analytics.AnalyticsFacade;
 import com.facebook.stetho.Stetho;
 import com.squareup.leakcanary.LeakCanary;
 import timber.log.Timber;
@@ -55,7 +54,6 @@ public class AndroidApp extends Application {
 
       initTimber(new CrashReportingTree());
       initCrashReports();
-      initAnalytics();
     }
   }
 
@@ -111,10 +109,6 @@ public class AndroidApp extends Application {
             .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
             .build()
     );
-  }
-
-  private void initAnalytics() {
-    AnalyticsFacade.init(this);
   }
 
   private void initTimber(Timber.Tree tree) {

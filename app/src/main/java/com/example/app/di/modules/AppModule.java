@@ -16,14 +16,13 @@
 
 package com.example.app.di.modules;
 
+import android.app.Application;
 import android.content.Context;
 import com.example.app.AndroidApp;
 import com.example.app.UIThread;
 import com.example.data.executor.JobExecutor;
-import com.example.data.repository.GithubDataRepository;
 import com.example.domain.executor.PostExecutionThread;
 import com.example.domain.executor.ThreadExecutor;
-import com.example.domain.repository.GithubRepository;
 import dagger.Module;
 import dagger.Provides;
 import javax.inject.Singleton;
@@ -41,8 +40,14 @@ public class AppModule {
 
   @Provides
   @Singleton
-  Context provideApplicationContext() {
+  Application provideApplication() {
     return this.application;
+  }
+
+  @Provides
+  @Singleton
+  Context provideApplicationContext() {
+    return this.application.getApplicationContext();
   }
 
   @Provides
@@ -57,9 +62,4 @@ public class AppModule {
     return uiThread;
   }
 
-  @Provides
-  @Singleton
-  GithubRepository provideGithubRepository(GithubDataRepository githubDataRepository) {
-    return githubDataRepository;
-  }
 }

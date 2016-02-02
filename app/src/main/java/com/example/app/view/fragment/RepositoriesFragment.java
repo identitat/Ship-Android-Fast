@@ -36,9 +36,6 @@ import com.example.domain.exception.ErrorBundle;
 import java.util.List;
 import javax.inject.Inject;
 
-/**
- * @author victor
- */
 public class RepositoriesFragment extends BaseFragment implements RepositoryViewModel.DataListener {
 
   FragmentRepositoriesBinding binding;

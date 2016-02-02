@@ -18,6 +18,8 @@ package com.example.app.di.modules;
 
 import android.os.Build;
 import com.example.app.BuildConfig;
+import com.example.data.repository.GithubDataRepository;
+import com.example.domain.repository.GithubRepository;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.squareup.okhttp.logging.HttpLoggingInterceptor;
@@ -33,6 +35,12 @@ import javax.inject.Singleton;
     ApiModule.class, DatabaseModule.class,
 })
 public class DataModule {
+
+  @Provides
+  @Singleton
+  GithubRepository provideGithubRepository(GithubDataRepository githubDataRepository) {
+    return githubDataRepository;
+  }
 
   @Provides
   @Singleton

@@ -29,7 +29,6 @@ public class Event {
   private final String value;
   private final HashMap<String, String> payload;
   private final Long timestamp;
-  private final String screen;
 
   public Event(String type, String name) {
     this(type, name, null, new HashMap<String, String>(0));
@@ -47,21 +46,12 @@ public class Event {
     this(type, name, value, payload, new Date().getTime());
   }
 
-  public Event(
-      String type, String name, String value, HashMap<String, String> payload, Long timestamp
-  ) {
-    this(type, name, value, payload, timestamp, AnalyticsFacade.getScreen());
-  }
-
-  Event(
-      String type, String name, String value, HashMap<String, String> payload, Long timestamp, String screen
-  ) {
+  Event(String type, String name, String value, HashMap<String, String> payload, Long timestamp) {
     this.type = type;
     this.name = name;
     this.value = value;
     this.payload = payload;
     this.timestamp = timestamp;
-    this.screen = screen;
   }
 
   public String getType() {
@@ -84,9 +74,6 @@ public class Event {
     return timestamp;
   }
 
-  public String getScreen() {
-    return screen;
-  }
 
   @Override
   public String toString() {
@@ -96,7 +83,6 @@ public class Event {
         ", value='" + value + '\'' +
         ", payload=" + payload +
         ", timestamp=" + timestamp +
-        ", screen=" + screen +
         '}';
   }
 }
