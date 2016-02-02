@@ -31,7 +31,7 @@ apply plugin: 'com.fernandocejas.frodo'
 android {
 
   // Remove on release
-  defaultPublishConfig "debug"
+  // defaultPublishConfig "debug"
 
   compileSdkVersion rootProject.ext.androidCompileSdkVersion
   buildToolsVersion rootProject.ext.androidBuildToolsVersion
