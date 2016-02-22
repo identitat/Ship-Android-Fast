@@ -63,7 +63,7 @@ android {
     release {
       def props = new Properties()
       props.load(
-          new FileInputStream(rootProject.file("config/buildsystem/release.properties.sample")))
+          new FileInputStream(rootProject.file("config/buildsystem/release.properties")))
 
       storeFile file(props.keyStore)
       storePassword props.keyStorePassword
