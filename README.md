@@ -3,14 +3,12 @@ Ship Android Fast
 [![Hex.pm](https://img.shields.io/hexpm/l/plug.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
 This repository has been created to allow me to bootstrap everything I think it's necessary nowadays in an android app.
-Most of the structure is based on [Android-CleanArchitecture](21).
 
 
 Libraries / Patterns
 -----------------
 
-* MVVM with Data-binding
-* Clean Architecture
+* [Clean Architecture](21)
 * [Support Libraries][1]
 * [RxJava][2]
 * [Butterknife][3]
