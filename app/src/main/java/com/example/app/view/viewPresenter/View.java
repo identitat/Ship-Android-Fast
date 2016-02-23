@@ -14,12 +14,8 @@
  *     limitations under the License.
  */
 
-package com.example.app.viewmodel;
+package com.example.app.view.viewPresenter;
 
-/**
- * Interface representing a Viewmodel in a MVVM pattern.
- */
-public interface ViewModel {
+public interface View {
 
-  void destroy();
 }

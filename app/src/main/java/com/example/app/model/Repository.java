@@ -22,9 +22,9 @@ import auto.parcel.AutoParcel;
 @AutoParcel
 public abstract class Repository implements Parcelable {
 
-  public abstract int id();
+  public abstract int getId();
 
-  public abstract String name();
+  public abstract String getName();
 
   public static Repository create(int id, String name) {
     return builder().id(id).name(name).build();

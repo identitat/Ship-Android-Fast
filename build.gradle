@@ -13,7 +13,6 @@ buildscript {
   }
   dependencies {
     classpath 'com.android.tools.build:gradle:2.0.0-beta5'
-    classpath "com.android.databinding:dataBinder:1.0-rc4"
     classpath "com.neenbedankt.gradle.plugins:android-apt:1.8"
     classpath "org.sonarqube.gradle:gradle-sonarqube-plugin:1.0"
     classpath "com.fernandocejas.frodo:frodo-plugin:0.8.2"

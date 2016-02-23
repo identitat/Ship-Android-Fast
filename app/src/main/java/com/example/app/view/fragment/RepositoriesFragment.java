@@ -25,41 +25,46 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import butterknife.Bind;
+import com.example.app.AndroidApp;
 import com.example.app.R;
-import com.example.app.databinding.FragmentRepositoriesBinding;
 import com.example.app.exception.ErrorMessageFactory;
 import com.example.app.model.Repository;
+import com.example.app.presenter.RepositoriesPresenter;
 import com.example.app.view.adapter.RepositoryAdapter;
-import com.example.app.viewmodel.RepositoryViewModel;
+import com.example.app.view.viewPresenter.RepositoriesView;
 import com.example.domain.exception.ErrorBundle;
 import java.util.List;
 import javax.inject.Inject;
 
-public class RepositoriesFragment extends BaseFragment implements RepositoryViewModel.DataListener {
-
-  FragmentRepositoriesBinding binding;
+public class RepositoriesFragment extends BaseFragment implements RepositoriesView {
 
   @Inject
-  RepositoryViewModel viewModel;
+  RepositoriesPresenter repositoriesPresenter;
 
   @Bind(R.id.rl_repository_list)
   RelativeLayout rlRepositoryList;
   @Bind(R.id.rv_repo)
   RecyclerView rvRepo;
+  @Bind(R.id.rl_progress)
+  RelativeLayout rlProgress;
+  @Bind(R.id.rl_retry)
+  RelativeLayout rlRetry;
 
   public static RepositoriesFragment newInstance() {
     return new RepositoriesFragment();
   }
 
   @Override
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    AndroidApp.get(getActivity()).getComponent().inject(this);
+  }
+
+  @Override
   public View onCreateView(
       LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState
   ) {
-    View view = inflater.inflate(R.layout.fragment_repositories, container, false);
-    viewModel.setDataListener(this);
-    binding = FragmentRepositoriesBinding.bind(view);
-    binding.setViewModel(viewModel);
-    return view;
+    return inflater.inflate(R.layout.fragment_repositories, container, false);
   }
 
   @Override
@@ -69,29 +74,50 @@ public class RepositoriesFragment extends BaseFragment implements RepositoryView
       Bundle savedInstanceState
   ) {
     super.onViewCreated(view, savedInstanceState);
-
     setupRecyclerView(rvRepo);
-    viewModel.initialize();
+    repositoriesPresenter.attachView(this);
+    repositoriesPresenter.initialize();
   }
 
   @Override
-  public void onRepositoriesChanged(List<Repository> repositories) {
-    RepositoryAdapter adapter = (RepositoryAdapter) binding.rvRepo.getAdapter();
+  public void showRepositories(List<Repository> repositories) {
+    RepositoryAdapter adapter = (RepositoryAdapter) rvRepo.getAdapter();
     adapter.setRepositoryList(repositories);
     adapter.notifyDataSetChanged();
   }
 
   @Override
-  public void onError(ErrorBundle errorBundle) {
+  public void showLoading() {
+    rlProgress.setVisibility(View.VISIBLE);
+  }
+
+  @Override
+  public void hideLoading() {
+    rlProgress.setVisibility(View.GONE);
+  }
+
+  @Override
+  public void showRetry() {
+    rlRetry.setVisibility(View.VISIBLE);
+  }
+
+  @Override
+  public void hideRetry() {
+    rlRetry.setVisibility(View.GONE);
+  }
+
+  @Override
+  public void showError(ErrorBundle errorBundle) {
     if (isAdded() && rlRepositoryList != null) {
       this.showSnackbarMessage(
-          this.rlRepositoryList, ErrorMessageFactory.create(getContext(), errorBundle.getException())
+          this.rlRepositoryList,
+          ErrorMessageFactory.create(getContext(), errorBundle.getException())
       );
     }
   }
 
   private void setupRecyclerView(RecyclerView recyclerView) {
-    RepositoryAdapter adapter = new RepositoryAdapter();
+    RepositoryAdapter adapter = new RepositoryAdapter(getContext());
     recyclerView.setAdapter(adapter);
     recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
   }

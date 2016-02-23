@@ -15,36 +15,23 @@
   ~     limitations under the License.
   -->
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:tools="http://schemas.android.com/tools"
-  xmlns:app="http://schemas.android.com/apk/res-auto">
-
-  <data>
-
-    <variable
-      name="viewModel"
-      type="com.example.app.viewmodel.RepositoryViewModel" />
-  </data>
-
-  <RelativeLayout
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rl_repository_list"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.RecyclerView
+  <android.support.v7.widget.RecyclerView
       android:id="@+id/rv_repo"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      tools:listitem="@layout/view_repo_row" />
+      tools:listitem="@layout/view_repo_row"/>
 
-    <include
-      layout="@layout/view_progress"
-      app:visibility="@{viewModel.progressVisibility}" />
+  <include
+      layout="@layout/view_progress"/>
 
-    <include
-      layout="@layout/view_retry"
-      app:visibility="@{viewModel.retryVisibility}" />
+  <include
+      layout="@layout/view_retry"/>
 
-  </RelativeLayout>
-
-</layout>
+</RelativeLayout>

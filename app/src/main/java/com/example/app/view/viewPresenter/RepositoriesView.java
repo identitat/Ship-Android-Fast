@@ -14,37 +14,12 @@
  *     limitations under the License.
  */
 
-package com.example.app.viewmodel;
+package com.example.app.view.viewPresenter;
 
-import android.content.Context;
-import android.databinding.BaseObservable;
 import com.example.app.model.Repository;
+import java.util.List;
 
+public interface RepositoriesView extends LoadDataView {
 
-public class ItemRepoViewModel extends BaseObservable implements ViewModel {
-
-  private final Context context;
-  private Repository repository;
-
-  public ItemRepoViewModel(Context context, Repository repository) {
-    this.context = context;
-    this.repository = repository;
-  }
-
-  @Override
-  public void destroy() {
-    // No Async Calls
-  }
-
-  public int getId() {
-    return repository.id();
-  }
-
-  public String getName() {
-    return repository.name();
-  }
-
-  public void setRepository(Repository repository) {
-    this.repository = repository;
-  }
+  void showRepositories(List<Repository> repositories);
 }

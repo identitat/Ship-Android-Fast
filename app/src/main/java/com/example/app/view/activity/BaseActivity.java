@@ -16,11 +16,9 @@
 
 package com.example.app.view.activity;
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import com.example.app.AndroidApp;
 import com.example.app.navigation.Navigator;
 import javax.inject.Inject;
 
@@ -31,12 +29,6 @@ public abstract class BaseActivity extends AppCompatActivity {
 
   @Inject
   Navigator navigator;
-
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    AndroidApp.get(this).getComponent().inject(this);
-  }
 
   /**
    * Adds a {@link Fragment} to this activity's layout.

@@ -14,13 +14,10 @@
  *     limitations under the License.
  */
 
-package com.example.app.viewmodel;
+package com.example.app.presenter;
 
-import android.databinding.ObservableInt;
-import android.view.View;
-import com.example.app.model.Repository;
 import com.example.app.model.mapper.RepoDomainPresMapper;
-import com.example.app.utils.imageloader.ImageLoader;
+import com.example.app.view.viewPresenter.RepositoriesView;
 import com.example.domain.exception.DefaultErrorBundle;
 import com.example.domain.exception.ErrorBundle;
 import com.example.domain.interactor.DefaultSubscriber;
@@ -31,33 +28,40 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-/**
- * Implementation of a Viewmodel.
- */
-public class RepositoryViewModel implements ViewModel {
+public class RepositoriesPresenter implements Presenter<RepositoriesView> {
 
-  private DataListener dataListener;
-
-  public ObservableInt progressVisibility;
-  public ObservableInt retryVisibility;
+  private RepositoriesView view;
 
   private final UseCase getRepoListUseCase;
   private final RepoDomainPresMapper repoDomainPresMapper;
-  private final ImageLoader imageLoader;
 
   @Inject
-  public RepositoryViewModel(
+  public RepositoriesPresenter(
       @Named("repoList")
-      UseCase getRepoListUseCase,
-      RepoDomainPresMapper repoDomainPresMapper,
-      ImageLoader imageLoader
+      UseCase getRepoListUseCase, RepoDomainPresMapper repoDomainPresMapper
   ) {
     this.getRepoListUseCase = getRepoListUseCase;
     this.repoDomainPresMapper = repoDomainPresMapper;
-    this.imageLoader = imageLoader;
+  }
 
-    progressVisibility = new ObservableInt(View.GONE);
-    retryVisibility = new ObservableInt(View.GONE);
+  @Override
+  public void initialize() {
+    hideRetry();
+    showLoading();
+    loadRepositories();
+  }
+
+  @Override
+  public void attachView(RepositoriesView view) {
+    this.view = view;
+  }
+
+  @Override
+  public void resume() {
+  }
+
+  @Override
+  public void pause() {
   }
 
   @Override
@@ -65,12 +69,7 @@ public class RepositoryViewModel implements ViewModel {
     if (getRepoListUseCase != null) {
       getRepoListUseCase.unsubscribe();
     }
-  }
-
-  public void initialize() {
-    hideRetry();
-    showLoading();
-    loadRepositories();
+    this.view = null;
   }
 
   private void loadRepositories() {
@@ -78,41 +77,27 @@ public class RepositoryViewModel implements ViewModel {
   }
 
   private void showLoading() {
-    progressVisibility.set(View.VISIBLE);
+    view.showLoading();
   }
 
   private void hideLoading() {
-    progressVisibility.set(View.GONE);
+    view.hideLoading();
   }
 
   private void showRetry() {
-    retryVisibility.set(View.VISIBLE);
+    view.showRetry();
   }
 
   private void hideRetry() {
-    retryVisibility.set(View.GONE);
+    view.hideRetry();
   }
 
   private void showError(ErrorBundle errorBundle) {
-    if (dataListener != null) {
-      dataListener.onError(errorBundle);
-    }
+    view.showError(errorBundle);
   }
 
-  private void showRepoList(List<RepoDomain> repositories) {
-    if (dataListener != null) {
-      dataListener.onRepositoriesChanged(repoDomainPresMapper.transform(repositories));
-    }
-  }
-
-  public void setDataListener(DataListener dataListener) {
-    this.dataListener = dataListener;
-  }
-
-  public interface DataListener {
-    void onRepositoriesChanged(List<Repository> repositories);
-
-    void onError(ErrorBundle errorBundle);
+  private void showRepositories(List<RepoDomain> repoDomainList) {
+    view.showRepositories(repoDomainPresMapper.transform(repoDomainList));
   }
 
   @RxLogSubscriber
@@ -120,19 +105,19 @@ public class RepositoryViewModel implements ViewModel {
 
     @Override
     public void onCompleted() {
-      RepositoryViewModel.this.hideLoading();
+      RepositoriesPresenter.this.hideLoading();
     }
 
     @Override
     public void onError(Throwable e) {
-      RepositoryViewModel.this.hideLoading();
-      RepositoryViewModel.this.showRetry();
-      RepositoryViewModel.this.showError(new DefaultErrorBundle((Exception) e));
+      RepositoriesPresenter.this.hideLoading();
+      RepositoriesPresenter.this.showRetry();
+      RepositoriesPresenter.this.showError(new DefaultErrorBundle((Exception) e));
     }
 
     @Override
     public void onNext(List<RepoDomain> repositories) {
-      RepositoryViewModel.this.showRepoList(repositories);
+      RepositoriesPresenter.this.showRepositories(repositories);
     }
   }
 }
