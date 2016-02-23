@@ -17,6 +17,7 @@
 package com.example.data.entity.mapper;
 
 import com.example.data.entity.RepoEntity;
+import com.example.domain.model.ImmutableRepoDomain;
 import com.example.domain.model.RepoDomain;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -33,7 +34,7 @@ public class RepoDataDomainMapper {
   }
 
   public RepoDomain transform(RepoEntity repoEntity) {
-    return new RepoDomain.Builder().id(repoEntity.getId()).name(repoEntity.getName()).build();
+    return ImmutableRepoDomain.builder().id(repoEntity.getId()).name(repoEntity.getName()).build();
   }
 
   public List<RepoDomain> transform(Collection<RepoEntity> repoEntityCollection) {

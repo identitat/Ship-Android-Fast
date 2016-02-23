@@ -18,6 +18,7 @@ package com.example.app.di.modules;
 
 import android.os.Build;
 import com.example.app.BuildConfig;
+import com.example.data.entity.GsonAdaptersRepoEntity;
 import com.example.data.repository.GithubDataRepository;
 import com.example.domain.repository.GithubRepository;
 import com.google.gson.Gson;
@@ -79,6 +80,8 @@ public class DataModule {
   @Provides
   @Singleton
   Gson provideGson() {
-    return new GsonBuilder().create();
+    GsonBuilder gsonBuilder = new GsonBuilder();
+    gsonBuilder.registerTypeAdapterFactory(new GsonAdaptersRepoEntity());
+    return gsonBuilder.create();
   }
 }

@@ -81,6 +81,10 @@ dependencies {
   compile dataDependencies.gson
   compile dataDependencies.timber
 
+  apt dataDependencies.immutables
+  provided dataDependencies.immutables
+  provided dataDependencies.immutablesGson
+
   debugCompile dataDependencies.stetho
   debugCompile dataDependencies.stethoInterceptor
   compile dataDependencies.stethoOkhttp

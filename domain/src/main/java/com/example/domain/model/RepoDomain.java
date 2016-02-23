@@ -16,51 +16,12 @@
 
 package com.example.domain.model;
 
-/**
- * @author victor
- */
-public class RepoDomain {
+import org.immutables.value.Value;
 
-  private int id;
-  private String name;
+@Value.Immutable
+@Value.Style(jdkOnly = true)
+public abstract class RepoDomain {
 
-  public RepoDomain(Builder builder) {
-    this.id = builder.id;
-    this.name = builder.name;
-  }
-
-  public int getId() {
-    return id;
-  }
-
-  public void setId(int id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public static class Builder {
-    private int id;
-    private String name;
-
-    public Builder id(int id) {
-      this.id = id;
-      return this;
-    }
-
-    public Builder name(String name) {
-      this.name = name;
-      return this;
-    }
-
-    public RepoDomain build() {
-      return new RepoDomain(this);
-    }
-  }
+  public abstract int getId();
+  public abstract String getName();
 }

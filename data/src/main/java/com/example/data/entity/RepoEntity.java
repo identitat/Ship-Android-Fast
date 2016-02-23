@@ -17,52 +17,14 @@
 package com.example.data.entity;
 
 import com.google.gson.annotations.SerializedName;
+import org.immutables.gson.Gson;
+import org.immutables.value.Value;
 
-public class RepoEntity {
-
+@Gson.TypeAdapters
+@Value.Immutable
+public abstract class RepoEntity {
   @SerializedName("id")
-  private int id;
-
+  public abstract int getId();
   @SerializedName("name")
-  private String name;
-
-  public RepoEntity(Builder builder) {
-    this.id = builder.id;
-    this.name = builder.name;
-  }
-
-  public int getId() {
-    return id;
-  }
-
-  public void setId(int id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public static class Builder {
-    private int id;
-    private String name;
-
-    public Builder id(int id) {
-      this.id = id;
-      return this;
-    }
-
-    public Builder name(String name) {
-      this.name = name;
-      return this;
-    }
-
-    public RepoEntity build() {
-      return new RepoEntity(this);
-    }
-  }
+  public abstract String getName();
 }

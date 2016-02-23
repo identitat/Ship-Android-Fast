@@ -15,6 +15,8 @@
  */
 
 apply plugin: 'java'
+apply plugin: 'net.ltgt.apt'
+apply plugin: 'idea'
 
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
@@ -36,6 +38,9 @@ dependencies {
 
   compile domainDependencies.dagger
   compile domainDependencies.rxJava
+
+  apt dataDependencies.immutables
+  provided dataDependencies.immutables
 
   testCompile domainTestDependencies.junit
   testCompile domainTestDependencies.mockito
