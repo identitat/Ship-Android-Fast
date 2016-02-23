@@ -20,9 +20,7 @@ import android.content.Context;
 import android.databinding.BaseObservable;
 import com.example.app.model.Repository;
 
-/**
- * @author victor
- */
+
 public class ItemRepoViewModel extends BaseObservable implements ViewModel {
 
   private final Context context;

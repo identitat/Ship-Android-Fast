@@ -17,7 +17,6 @@
 package com.example.app.view.activity;
 
 import android.os.Bundle;
-import com.example.app.AndroidApp;
 import com.example.app.R;
 import com.example.app.view.fragment.RepositoriesFragment;
 
@@ -27,7 +26,6 @@ public class MainActivity extends BaseActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-    AndroidApp.get(this).getComponent().inject(this);
 
     if (savedInstanceState == null) {
       this.addFragment(R.id.container, RepositoriesFragment.newInstance());

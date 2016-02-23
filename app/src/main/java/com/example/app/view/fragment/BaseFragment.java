@@ -23,6 +23,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.View;
 import butterknife.ButterKnife;
+import com.example.app.AndroidApp;
 
 /**
  * Base {@link android.support.v4.app.Fragment} class for every Fragment in this application.
@@ -33,6 +34,7 @@ public abstract class BaseFragment extends Fragment {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setRetainInstance(true);
+    AndroidApp.get(getActivity()).getComponent().inject(this);
   }
 
   @Override

@@ -31,6 +31,7 @@ Libraries / Patterns
 * [Retrofit][18]
 * [Gson][19]
 * [Frodo][20]
+* [Immutables][22]
 
 
 License
@@ -71,3 +72,4 @@ License
 [19]:https://github.com/google/gson
 [20]:https://github.com/android10/frodo
 [21]:https://github.com/android10/Android-CleanArchitecture
+[22]:http://immutables.github.io/

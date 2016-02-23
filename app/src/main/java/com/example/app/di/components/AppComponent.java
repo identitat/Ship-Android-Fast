@@ -20,8 +20,8 @@ import com.example.app.di.modules.AppModule;
 import com.example.app.di.modules.DataModule;
 import com.example.app.di.modules.DomainModule;
 import com.example.app.di.modules.PresentationModule;
-import com.example.app.view.activity.MainActivity;
-import com.example.app.view.fragment.RepositoriesFragment;
+import com.example.app.view.activity.BaseActivity;
+import com.example.app.view.fragment.BaseFragment;
 import dagger.Component;
 import javax.inject.Singleton;
 
@@ -35,7 +35,7 @@ import javax.inject.Singleton;
     })
 public interface AppComponent {
 
-  void inject(MainActivity mainActivity);
+  void inject(BaseActivity baseActivity);
+  void inject(BaseFragment repositoriesFragment);
 
-  void inject(RepositoriesFragment repositoriesFragment);
 }

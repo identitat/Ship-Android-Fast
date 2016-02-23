@@ -25,7 +25,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import butterknife.Bind;
-import com.example.app.AndroidApp;
 import com.example.app.R;
 import com.example.app.databinding.FragmentRepositoriesBinding;
 import com.example.app.exception.ErrorMessageFactory;
@@ -50,12 +49,6 @@ public class RepositoriesFragment extends BaseFragment implements RepositoryView
 
   public static RepositoriesFragment newInstance() {
     return new RepositoriesFragment();
-  }
-
-  @Override
-  public void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    AndroidApp.get(getActivity()).getComponent().inject(this);
   }
 
   @Override
