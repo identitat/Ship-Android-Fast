@@ -8,7 +8,7 @@ This repository has been created to allow me to bootstrap everything I think it'
 Libraries / Patterns
 -----------------
 
-* [Clean Architecture](21)
+* [Clean Architecture][21]
 * [Support Libraries][1]
 * [RxJava][2]
 * [Butterknife][3]
