@@ -27,9 +27,9 @@ import com.example.app.AndroidApp;
 /**
  * Utils class to handle device operations
  */
-public class DeviceUtils {
+public class KeyboardUtils {
 
-  private DeviceUtils() {
+  private KeyboardUtils() {
   }
 
   public static void closeSoftKeyboardForActivity(Activity activity) {
