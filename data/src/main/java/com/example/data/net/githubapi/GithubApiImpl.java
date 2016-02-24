@@ -17,7 +17,7 @@
 package com.example.data.net.githubapi;
 
 import android.content.Context;
-import com.example.commons.NetworkUtils;
+import com.example.commons.DeviceNetworkUtils;
 import com.example.data.entity.RepoEntity;
 import com.example.data.exception.NetworkConnectionException;
 import com.example.data.exception.ServerIssueException;
@@ -48,7 +48,7 @@ public class GithubApiImpl implements GithubApi {
   public Observable<List<RepoEntity>> repoEntityList() {
     return Observable.create(
         subscriber -> {
-          if (NetworkUtils.isThereInternetConnection(context)) {
+          if (DeviceNetworkUtils.isConnected(context)) {
             try {
 
               Call<List<RepoEntity>> call = githubApiService.listRepos("facebook");

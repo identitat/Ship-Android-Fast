@@ -1,11 +1,5 @@
 package com.example.commons;
 
-/**
- * rang-android
- * <p/>
- * Created by identitat on 28/01/16.
- * Copyright (c) 2016 Identitat SL. All rights reserved.
- */
 
 import android.content.Context;
 import android.net.ConnectivityManager;
