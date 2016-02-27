@@ -74,7 +74,6 @@ public class Event {
     return timestamp;
   }
 
-
   @Override
   public String toString() {
     return "Event{" +

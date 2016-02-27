@@ -22,9 +22,6 @@ import retrofit.Call;
 import retrofit.http.GET;
 import retrofit.http.Path;
 
-/**
- * @author victor
- */
 public interface GithubApiService {
 
   @GET("/users/{user}/repos")

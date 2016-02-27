@@ -20,11 +20,6 @@ import com.squareup.okhttp.Interceptor;
 import com.squareup.okhttp.Response;
 import java.io.IOException;
 
-/**
- * Author: Victor Hidalgo
- * Date: 06.05.15.
- * Desc : Interceptor to rewrite cache header with necessary parameters for caching with okhttp
- */
 public class CacheResponseInterceptor implements Interceptor {
 
   private static final String CACHE_CONTROL_PARAMS = "public, max-age=10800";

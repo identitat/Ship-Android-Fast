@@ -50,5 +50,4 @@ public final class AnalyticsManager {
 
     googleAnalytics.handleTransaction(product, productAction);
   }
-
 }

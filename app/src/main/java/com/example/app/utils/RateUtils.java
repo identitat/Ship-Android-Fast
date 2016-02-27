@@ -39,13 +39,10 @@ public class RateUtils {
       throw new RuntimeException("Activity may not be null when calling goToMarketPlaceForRating");
     }
     try {
-      activity.startActivity(
-          new Intent(
-              "android.intent.action.VIEW", Uri.parse(
-              "market://details?id=" + AndroidApp.get(activity).getPackageName()
-          )
-          )
-      );
+      activity.startActivity(new Intent(
+          "android.intent.action.VIEW",
+          Uri.parse("market://details?id=" + AndroidApp.get(activity).getPackageName())
+      ));
     } catch (Exception e) {
       Timber.e(TAG, "Failed to start view intent to open up the market place for rating");
     }

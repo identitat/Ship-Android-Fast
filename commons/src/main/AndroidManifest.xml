@@ -15,10 +15,11 @@
   -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.commons">
+  package="com.example.commons">
 
-  <application android:allowBackup="true"
-      android:supportsRtl="true">
+  <application
+    android:allowBackup="true"
+    android:supportsRtl="true">
 
   </application>
 

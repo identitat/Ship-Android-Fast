@@ -109,9 +109,8 @@ public class RepositoriesFragment extends BaseFragment implements RepositoriesVi
   @Override
   public void showError(ErrorBundle errorBundle) {
     if (isAdded() && rlRepositoryList != null) {
-      this.showSnackbarMessage(
-          this.rlRepositoryList,
-          ErrorMessageFactory.create(getContext(), errorBundle.getException())
+      this.showSnackbarMessage(this.rlRepositoryList,
+                               ErrorMessageFactory.create(getContext(), errorBundle.getException())
       );
     }
   }

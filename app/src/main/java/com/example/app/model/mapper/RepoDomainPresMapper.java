@@ -24,9 +24,6 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-/**
- * @author victor
- */
 @Singleton
 public class RepoDomainPresMapper {
 
