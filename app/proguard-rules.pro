@@ -77,3 +77,6 @@
 
 # Retrolambda
 -dontwarn java.lang.invoke.*
+
+# Immutables
+-dontwarn org.immutables.**
