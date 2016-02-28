@@ -16,9 +16,9 @@
 
 package com.example.data.net.interceptor;
 
-import com.squareup.okhttp.Interceptor;
-import com.squareup.okhttp.Response;
 import java.io.IOException;
+import okhttp3.Interceptor;
+import okhttp3.Response;
 
 public class CacheResponseInterceptor implements Interceptor {
 

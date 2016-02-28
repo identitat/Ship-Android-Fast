@@ -16,15 +16,14 @@
 
 package com.example.data.net.interceptor;
 
-import com.squareup.okhttp.Interceptor;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.Response;
 import java.io.IOException;
+import okhttp3.Request;
+import okhttp3.Response;
 
 /**
  * Replaces default user agent by a custom one provided with dagger
  */
-public class UserAgentInterceptor implements Interceptor {
+public class UserAgentInterceptor implements okhttp3.Interceptor {
   private static final String USER_AGENT_HEADER_NAME = "User-Agent";
   private final String userAgentHeaderValue;
 

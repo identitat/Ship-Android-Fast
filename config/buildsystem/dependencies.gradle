@@ -67,7 +67,7 @@ ext {
       icepick           : "frankiesardo:icepick:${icepickVersion}",
       icepickProc       : "frankiesardo:icepick-processor:${icepickVersion}",
       analyticsServices : "com.google.android.gms:play-services-analytics:${playServicesVersion}",
-      okhttpGlideInteg  : "com.github.bumptech.glide:okhttp-integration:${okhttpGlideIntegrationVersion}",
+      okhttpGlideInteg  : "com.github.bumptech.glide:okhttp3-integration:${okhttpGlideIntegrationVersion}",
   ]
 
   appTestDependencies = [
@@ -103,7 +103,7 @@ ext {
       rxAndroid         : "io.reactivex:rxandroid:${rxAndroidVersion}",
       javaxAnnotation   : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
       stetho            : "com.facebook.stetho:stetho:${stethoVersion}",
-      stethoOkhttp      : "com.facebook.stetho:stetho-okhttp:${stethoVersion}",
+      stethoOkhttp      : "com.facebook.stetho:stetho-okhttp3:${stethoVersion}",
       stethoInterceptor : "com.facebook.stetho:stetho-urlconnection:${stethoVersion}",
       retrofit          : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
       httpLogInterceptor: "com.squareup.okhttp3:logging-interceptor:${httpLogInterceptorVersion}",
@@ -111,7 +111,7 @@ ext {
       gson              : "com.google.code.gson:gson:${gsonVersion}",
       timber            : "com.jakewharton.timber:timber:${timberVersion}",
       immutables        : "org.immutables:value:${immutablesVersion}",
-      immutablesGson    : "org.immutables:gson:${immutablesVersion}",
+      immutablesGson    : "org.immutables:gson:${immutablesVersion}:annotations",
   ]
 
   dataTestDependencies = [

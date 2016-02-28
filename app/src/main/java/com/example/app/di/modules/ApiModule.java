@@ -20,18 +20,18 @@ import android.content.Context;
 import com.example.data.net.githubapi.GithubApiService;
 import com.example.data.net.interceptor.CacheResponseInterceptor;
 import com.example.data.net.interceptor.UserAgentInterceptor;
-import com.facebook.stetho.okhttp.StethoInterceptor;
+import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.google.gson.Gson;
-import com.squareup.okhttp.Cache;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.logging.HttpLoggingInterceptor;
 import dagger.Module;
 import dagger.Provides;
 import java.io.File;
 import javax.inject.Named;
 import javax.inject.Singleton;
-import retrofit.GsonConverterFactory;
-import retrofit.Retrofit;
+import okhttp3.Cache;
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * A dagger module that provides retrofit services
@@ -64,11 +64,11 @@ public class ApiModule {
       @Named("userAgent")
       String userAgentValue
   ) {
-    OkHttpClient client = new OkHttpClient();
-    client.interceptors().add(loggingInterceptor);
-    client.networkInterceptors().add(new UserAgentInterceptor(userAgentValue));
-    client.networkInterceptors().add(new StethoInterceptor());
-    return client;
+    return new OkHttpClient.Builder()
+        .addInterceptor(loggingInterceptor)
+        .addNetworkInterceptor(new UserAgentInterceptor(userAgentValue))
+        .addNetworkInterceptor(new StethoInterceptor())
+        .build();
   }
 
   @Provides
@@ -80,13 +80,13 @@ public class ApiModule {
       @Named("userAgent")
       String userAgentValue
   ) {
-    OkHttpClient client = new OkHttpClient();
-    client.setCache(cache);
-    client.interceptors().add(loggingInterceptor);
-    client.networkInterceptors().add(new UserAgentInterceptor(userAgentValue));
-    client.networkInterceptors().add(new CacheResponseInterceptor());
-    client.networkInterceptors().add(new StethoInterceptor());
-    return client;
+    return new OkHttpClient.Builder()
+        .cache(cache)
+        .addInterceptor(loggingInterceptor)
+        .addNetworkInterceptor(new UserAgentInterceptor(userAgentValue))
+        .addNetworkInterceptor(new StethoInterceptor())
+        .addNetworkInterceptor(new CacheResponseInterceptor())
+        .build();
   }
 
   @Provides
