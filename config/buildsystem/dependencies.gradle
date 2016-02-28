@@ -16,24 +16,24 @@ ext {
   androidCompileSdkVersion = 23
 
   //Libraries
-  supportVersion = '23.1.1'
+  supportVersion = '23.2.0'
   javaxAnnotationVersion = '1.0'
   daggerVersion = '2.0.2'
   butterKnifeVersion = '7.0.1'
-  rxJavaVersion = '1.1.0'
+  rxJavaVersion = '1.1.1'
   rxAndroidVersion = '1.1.0'
-  timberVersion = '4.1.0'
+  timberVersion = '4.1.1'
   leakcanaryVersion = '1.3.1'
-  glideVersion = '3.6.1'
+  glideVersion = '3.7.0'
   customactivityoncrashVersion = '1.4.0'
-  stethoVersion = '1.2.0'
-  retrofitVersion = '2.0.0-beta2'
-  httpLogInterceptorVersion = '2.6.0'
-  gsonVersion = '2.4'
+  stethoVersion = '1.3.1'
+  retrofitVersion = '2.0.0-beta4'
+  httpLogInterceptorVersion = '3.2.0'
+  gsonVersion = '2.5'
   autoParcelVersion = '0.3.1'
   icepickVersion = '3.1.0'
   playServicesVersion = '8.4.0'
-  okhttpGlideIntegrationVersion = '1.3.1@aar'
+  okhttpGlideIntegrationVersion = '1.4.0@aar'
   immutablesVersion = '2.1.11'
 
   //Testing
@@ -105,9 +105,9 @@ ext {
       stetho            : "com.facebook.stetho:stetho:${stethoVersion}",
       stethoOkhttp      : "com.facebook.stetho:stetho-okhttp:${stethoVersion}",
       stethoInterceptor : "com.facebook.stetho:stetho-urlconnection:${stethoVersion}",
-      retrofit          : "com.squareup.retrofit:retrofit:${retrofitVersion}",
-      httpLogInterceptor: "com.squareup.okhttp:logging-interceptor:${httpLogInterceptorVersion}",
-      gsonConverter     : "com.squareup.retrofit:converter-gson:${retrofitVersion}",
+      retrofit          : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+      httpLogInterceptor: "com.squareup.okhttp3:logging-interceptor:${httpLogInterceptorVersion}",
+      gsonConverter     : "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
       gson              : "com.google.code.gson:gson:${gsonVersion}",
       timber            : "com.jakewharton.timber:timber:${timberVersion}",
       immutables        : "org.immutables:value:${immutablesVersion}",
