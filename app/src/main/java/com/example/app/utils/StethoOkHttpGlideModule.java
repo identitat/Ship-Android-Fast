@@ -19,12 +19,12 @@ package com.example.app.utils;
 import android.content.Context;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.GlideBuilder;
-import com.bumptech.glide.integration.okhttp.OkHttpGlideModule;
-import com.bumptech.glide.integration.okhttp.OkHttpUrlLoader;
+import com.bumptech.glide.integration.okhttp3.OkHttpGlideModule;
+import com.bumptech.glide.integration.okhttp3.OkHttpUrlLoader;
 import com.bumptech.glide.load.model.GlideUrl;
-import com.facebook.stetho.okhttp.StethoInterceptor;
-import com.squareup.okhttp.OkHttpClient;
+import com.facebook.stetho.okhttp3.StethoInterceptor;
 import java.io.InputStream;
+import okhttp3.OkHttpClient;
 
 /**
  * Author: Victor Hidalgo

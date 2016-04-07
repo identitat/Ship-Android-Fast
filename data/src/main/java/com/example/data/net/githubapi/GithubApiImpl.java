@@ -23,7 +23,7 @@ import com.example.data.exception.NetworkConnectionException;
 import com.example.data.exception.ServerIssueException;
 import com.fernandocejas.frodo.annotation.RxLogObservable;
 import java.util.List;
-import retrofit.Call;
+import retrofit2.Call;
 import rx.Observable;
 import timber.log.Timber;
 

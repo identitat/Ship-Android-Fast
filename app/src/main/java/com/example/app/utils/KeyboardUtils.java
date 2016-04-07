@@ -41,16 +41,17 @@ public class KeyboardUtils {
   }
 
   public static void closeSoftKeyboardForFragment(View view) {
-    ((InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(
-        view.getWindowToken(), InputMethodManager.HIDE_IMPLICIT_ONLY
+    ((InputMethodManager) view.getContext()
+        .getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(
+        view.getWindowToken(),
+        InputMethodManager.HIDE_IMPLICIT_ONLY
     );
   }
 
   public static void showKeyboard(Context context, EditText focus) {
     if (focus != null) {
-      InputMethodManager inputMethodManager = (InputMethodManager) AndroidApp.get(context).getSystemService(
-          Context.INPUT_METHOD_SERVICE
-      );
+      InputMethodManager inputMethodManager =
+          (InputMethodManager) AndroidApp.get(context).getSystemService(Context.INPUT_METHOD_SERVICE);
       focus.requestFocus();
       inputMethodManager.showSoftInput(focus, InputMethodManager.SHOW_FORCED);
     }

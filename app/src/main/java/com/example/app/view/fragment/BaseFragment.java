@@ -66,7 +66,7 @@ public abstract class BaseFragment extends Fragment {
    * @param message An string representing a message to be shown.
    */
   protected void showSnackbarMessage(String message) {
-    if(getView() != null){
+    if (getView() != null) {
       Snackbar.make(getView(), message, Snackbar.LENGTH_LONG).show();
     }
   }

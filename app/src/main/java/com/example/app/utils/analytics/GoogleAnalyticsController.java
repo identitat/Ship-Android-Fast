@@ -58,8 +58,7 @@ public final class GoogleAnalyticsController implements AnalyticsTracker {
       return;
     }
     HitBuilders.ScreenViewBuilder builder = new HitBuilders.ScreenViewBuilder().addProduct(product).setProductAction(
-        productAction
-    );
+        productAction);
     tracker.setScreenName("transaction");
     tracker.send(builder.build());
   }

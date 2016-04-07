@@ -23,11 +23,11 @@ import com.example.data.repository.GithubDataRepository;
 import com.example.domain.repository.GithubRepository;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.squareup.okhttp.logging.HttpLoggingInterceptor;
 import dagger.Module;
 import dagger.Provides;
 import javax.inject.Named;
 import javax.inject.Singleton;
+import okhttp3.logging.HttpLoggingInterceptor;
 
 /**
  * A dagger module that provides all other stuff to be used in {@link ApiModule} or {@link DataModule}
