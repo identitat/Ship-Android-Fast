@@ -16,15 +16,18 @@
 
 package com.example.data.entity;
 
+import com.google.auto.value.AutoValue;
+import com.google.gson.TypeAdapterFactory;
 import com.google.gson.annotations.SerializedName;
-import org.immutables.gson.Gson;
-import org.immutables.value.Value;
 
-@Gson.TypeAdapters
-@Value.Immutable
+@AutoValue
 public abstract class RepoEntity {
   @SerializedName("id")
   public abstract int getId();
   @SerializedName("name")
   public abstract String getName();
+
+  public static TypeAdapterFactory typeAdapterFactory() {
+    return AutoValue_RepoEntity.typeAdapterFactory();
+  }
 }

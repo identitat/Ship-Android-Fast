@@ -148,8 +148,9 @@ dependencies {
   compile appDependencies.analyticsServices
   compile appDependencies.okhttpGlideInteg
 
-  compile appDependencies.autoParcel
-  apt appDependencies.autoParcelProc
+  apt appDependencies.autoValue
+  provided appDependencies.autoValue
+  apt appDependencies.autoValueParcel
 
   compile appDependencies.icepick
   apt appDependencies.icepickProc
