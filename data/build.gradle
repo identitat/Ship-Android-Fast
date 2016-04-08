@@ -81,9 +81,9 @@ dependencies {
   compile dataDependencies.gson
   compile dataDependencies.timber
 
-  apt dataDependencies.immutables
-  provided dataDependencies.immutables
-  provided dataDependencies.immutablesGson
+  apt dataDependencies.autoValue
+  provided dataDependencies.autoValue
+  apt dataDependencies.autoValueGson
 
   debugCompile dataDependencies.stetho
   debugCompile dataDependencies.stethoInterceptor

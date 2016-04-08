@@ -17,9 +17,9 @@
 package com.example.app.model;
 
 import android.os.Parcelable;
-import auto.parcel.AutoParcel;
+import com.google.auto.value.AutoValue;
 
-@AutoParcel
+@AutoValue
 public abstract class Repository implements Parcelable {
 
   public abstract int getId();
@@ -31,10 +31,10 @@ public abstract class Repository implements Parcelable {
   }
 
   public static Builder builder() {
-    return new AutoParcel_Repository.Builder();
+    return new AutoValue_Repository.Builder();
   }
 
-  @AutoParcel.Builder
+  @AutoValue.Builder
   public interface Builder {
     Builder id(int id);
 

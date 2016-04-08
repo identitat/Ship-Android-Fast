@@ -31,10 +31,13 @@ ext {
   httpLogInterceptorVersion = '3.2.0'
   gsonVersion = '2.5'
   autoParcelVersion = '0.3.1'
+  autoValueVersion = '1.2-rc1'
+  autoValueParcelVersion = '0.2.1'
   icepickVersion = '3.1.0'
   playServicesVersion = '8.4.0'
   okhttpGlideIntegrationVersion = '1.4.0@aar'
   immutablesVersion = '2.1.11'
+  autoValueGsonVersion = '0.2.2'
 
   //Testing
   robolectricVersion = '3.0'
@@ -46,28 +49,28 @@ ext {
   testRulesVersion = '0.4.1'
 
   appDependencies = [
-      support           : "com.android.support:support-v4:${supportVersion}",
-      appcompat         : "com.android.support:appcompat-v7:${supportVersion}",
-      recyclerView      : "com.android.support:recyclerview-v7:${supportVersion}",
-      design            : "com.android.support:design:${supportVersion}",
-      cards             : "com.android.support:cardview-v7:${supportVersion}",
-      javaxAnnotation   : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
-      daggerCompiler    : "com.google.dagger:dagger-compiler:${daggerVersion}",
-      dagger            : "com.google.dagger:dagger:${daggerVersion}",
-      butterKnife       : "com.jakewharton:butterknife:${butterKnifeVersion}",
-      rxJava            : "io.reactivex:rxjava:${rxJavaVersion}",
-      rxAndroid         : "io.reactivex:rxandroid:${rxAndroidVersion}",
-      timber            : "com.jakewharton.timber:timber:${timberVersion}",
-      activityOnCrash   : "cat.ereza:customactivityoncrash:${customactivityoncrashVersion}",
-      leakcanaryDebug   : "com.squareup.leakcanary:leakcanary-android:${leakcanaryVersion}",
-      leakcanaryRelease : "com.squareup.leakcanary:leakcanary-android-no-op:${leakcanaryVersion}",
-      glide             : "com.github.bumptech.glide:glide:${glideVersion}",
-      autoParcel        : "com.github.frankiesardo:auto-parcel:${autoParcelVersion}",
-      autoParcelProc    : "com.github.frankiesardo:auto-parcel-processor:${autoParcelVersion}",
-      icepick           : "frankiesardo:icepick:${icepickVersion}",
-      icepickProc       : "frankiesardo:icepick-processor:${icepickVersion}",
-      analyticsServices : "com.google.android.gms:play-services-analytics:${playServicesVersion}",
-      okhttpGlideInteg  : "com.github.bumptech.glide:okhttp3-integration:${okhttpGlideIntegrationVersion}",
+      support                 : "com.android.support:support-v4:${supportVersion}",
+      appcompat               : "com.android.support:appcompat-v7:${supportVersion}",
+      recyclerView            : "com.android.support:recyclerview-v7:${supportVersion}",
+      design                  : "com.android.support:design:${supportVersion}",
+      cards                   : "com.android.support:cardview-v7:${supportVersion}",
+      javaxAnnotation         : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+      daggerCompiler          : "com.google.dagger:dagger-compiler:${daggerVersion}",
+      dagger                  : "com.google.dagger:dagger:${daggerVersion}",
+      butterKnife             : "com.jakewharton:butterknife:${butterKnifeVersion}",
+      rxJava                  : "io.reactivex:rxjava:${rxJavaVersion}",
+      rxAndroid               : "io.reactivex:rxandroid:${rxAndroidVersion}",
+      timber                  : "com.jakewharton.timber:timber:${timberVersion}",
+      activityOnCrash         : "cat.ereza:customactivityoncrash:${customactivityoncrashVersion}",
+      leakcanaryDebug         : "com.squareup.leakcanary:leakcanary-android:${leakcanaryVersion}",
+      leakcanaryRelease       : "com.squareup.leakcanary:leakcanary-android-no-op:${leakcanaryVersion}",
+      glide                   : "com.github.bumptech.glide:glide:${glideVersion}",
+      autoValue               : "com.google.auto.value:auto-value:${autoValueVersion}",
+      autoValueParcel         : "com.ryanharter.auto.value:auto-value-parcel:${autoValueParcelVersion}",
+      icepick                 : "frankiesardo:icepick:${icepickVersion}",
+      icepickProc             : "frankiesardo:icepick-processor:${icepickVersion}",
+      analyticsServices       : "com.google.android.gms:play-services-analytics:${playServicesVersion}",
+      okhttpGlideInteg        : "com.github.bumptech.glide:okhttp-integration:${okhttpGlideIntegrationVersion}",
   ]
 
   appTestDependencies = [
@@ -110,8 +113,8 @@ ext {
       gsonConverter     : "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
       gson              : "com.google.code.gson:gson:${gsonVersion}",
       timber            : "com.jakewharton.timber:timber:${timberVersion}",
-      immutables        : "org.immutables:value:${immutablesVersion}",
-      immutablesGson    : "org.immutables:gson:${immutablesVersion}:annotations",
+      autoValue         : "com.google.auto.value:auto-value:${autoValueVersion}",
+      autoValueGson     : "com.ryanharter.auto.value:auto-value-gson:${autoValueGsonVersion}",
   ]
 
   dataTestDependencies = [
