@@ -112,8 +112,8 @@ ext {
       gsonConverter     : "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
       gson              : "com.google.code.gson:gson:${gsonVersion}",
       timber            : "com.jakewharton.timber:timber:${timberVersion}",
-      immutables        : "org.immutables:value:${immutablesVersion}",
-      immutablesGson    : "org.immutables:gson:${immutablesVersion}:annotations",
+      autoValue         : "com.google.auto.value:auto-value:${autoValueVersion}",
+      autoValueGson     : "com.ryanharter.auto.value:auto-value-gson:${autoValueGsonVersion}",
   ]
 
   dataTestDependencies = [
